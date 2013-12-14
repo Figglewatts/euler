@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import figglewatts.euler.problems.oneToFifty.Problem1;
+import figglewatts.euler.problems.oneToFifty.Problem2;
 
 /**
  * @author Figglewatts
@@ -13,15 +14,17 @@ public class Euler {
 	
 	public static void main(String[] args) {
 		PopulateList();
-		SolveProblem(1);
+		SolveProblem(2);
 	}
 	
 	private static void PopulateList() {
-		problemList.add(new Problem1());
+		problemList.add(0, new Problem1());
+		problemList.add(1, new Problem2());
 	}
 	
 	public static void SolveProblem(int problemNumber) {
-		problemList.get(problemNumber-1).Execute();
-		
+		BaseProblem problem = problemList.get(problemNumber-1);
+		System.out.println("Now executing problem number " + problem.number + ": " + problem.name);
+		problem.Execute();
 	}
 }
